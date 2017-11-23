@@ -1,0 +1,259 @@
+<html>
+<head>
+<title>Parplot general information</title>
+<link href="styleTutorial.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<link rel="shortcut icon" type="image/png" href="../logo.png">
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1>ParPlot</h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="#">Tutorial</a></li>
+					<li><a href="about.html">About ParPlot</a></li>
+					<li><a href="http://home.deib.polimi.it/castelle/home.html" onClick="MyWindow=window.open('http://www.nrm.deib.polimi.it/','MyWin??dow','width=800,height=500'); return false;">
+Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			<div id="post">
+				<h2 class="title"><a name=initial>ParPlot Tutorial</a></h2>
+<br>
+<div id="listFunctions">
+<p>
+<a href=#InputCSV> Input data "Solutions File"</a><br>
+<a href=#KendallCSV> Input data "Kendall Value"</a><br>
+<a href=#f01> F01	Upload data</a><br>
+<a href=#f03> F02	Grouping (bars)</a><br>
+<a href=#f04> F03	Brush</a><br>
+<a href=#f05> F04	Keep</a><br>
+<a href=#f06> F05	Exclude</a><br>
+<a href=#f07> F06	Show / Hide selected items</a><br>
+<a href=#f08> F07	Selection from data grid</a><br>
+<a href=#f09> F08	Print Screenshot</a><br>
+<a href=#f10> F09	Export active data</a><br>
+<a href=#f11> F10	Export selected items</a><br>
+<a href=#f13> F11	Data grid explorer</a><br>
+<a href=#f14> F12	Remark alternative</a><br>
+<a href=#f15> F13	Search by name</a><br>
+<a href=#f16> F14	Drop-down menu Kendall tau (slider)</a><br>
+<a href=#f17> F15	Drop-down menu dimensions (axis, slider)</a><br>
+<a href=#f18> F16	Clear search</a><br>
+<a href=#f19> F17	New Project</a><br>
+<a href=#f20> F18	Hide Ticks / Show ticks</a><br>
+<a href=#f21> F19	Dark / Light</a> <br>
+</div>
+
+
+                
+<h3> <a name=InputCSV>Input data "Solutions File" (.csv)</a></h3><br>
+<p><img src="images/ProjectionsCSV.png" width="600" height="240" alt="" /></p>
+<p>This file must contain all the information related with the viable solutions. Each of the solutions is defined with a name, a group (defined by a name that group any special characteristic), and the numerical values related to each one of the indicators (that will be represented at each one of the axes in the parallel plot) that generates a complete solution:</p>
+<p>-The first row of the file has to be defined as: "name,group,indicator 1,inticator 2,....,indicator n".</p>
+<p>-In the next rows the solutions are defined following the order of the header (first row).</p>
+<p>At the same time, this file can contain some reference solutions, that could represent restrictions, suggestions or specific solutions that are used as layouts during the negotiation process: </p><br>
+<p>-The reference solutions name have to contain the prefix "ref_"</p><br>
+<a href=#initial>Back to list of functions</a><br><br>
+
+<h3> <a name=KendallCSV>Input data "Kendall Value"</a></h3><br>
+<p><img src="images/KendallCSV.jpg" width="600" height="260" alt="" /></p>
+<p>ParPlot folder contains an auxiliary MatLab code that allows to calculate the mean Kendall tau index from the Kendall matrix, obtaining one value for each solution that represents the concordance between the solutions that contains the “projections file” previously explained (Once the MatLab code is ran it adds the Kendall value to the “projections file” as a new index).</p>
+<p>The figure above shows a section of a symmetric Kendall matrix, where all the values of the diagonal are equal to one (because the concordance of each solution in relation to itself is one) and the other spots show the value that corresponds to the concordance of two of the solutions (the one corresponding to the column and the one corresponding to the row):</p>
+<p>-The first row of the file contains the names of the solutions: "name 1, name 2, ... ,name n"</p>
+<p>-The next rows corresponds to the values of concordance of the Kendall Matrix</p>
+<p>To use the Kendall value in your analysis, run the MatLab code and use its output file as the input file for ParPlot.</p><br>
+<a href=#initial>Back to list of functions</a><br><br>
+                
+<h3> <a name=f01>F01	Upload data</a></h3><br>
+<p><img src="images/01upload.png" width="700" height="350" alt="" /></p>
+<p>To upload the .csv file that contains the set of solutions</p>
+<p>-Click on the button "Browse" under the label "Select Solutions file"</p>
+<p>-Select the .csv file that containds the set of solutions</p>
+<p>-Click "Open"</p><br>
+                
+<a href=#initial>Back to list of functions</a><br><br>
+
+<h3> <a name=f03>F02	Grouping (bars)</a></h3><br>
+<p><img src="images/03grouping.png" width="700" height="350" alt="" /></p>
+<p>Once the data is uploaded, a bar chart is created in the section "Classes". These bars show the different "groups" of data, and the number of solutions per group. The colors of the bars correspond with the colors of the represented solution in the parallel coordinates plot. </p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+<h3> <a name=f04>F03	Brush</a></h3><br>
+<p><img src="images/04brush.png" width="700" height="350" alt="" /></p>
+<p>To select a set of solutions:</p>
+<p>-Brush: Drag vertically along an axis.</p>
+<p>-Remove Brush: Tap the axis background.</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f05>F04	Keep</a></h3><br>
+<p><img src="images/05keep.png" width="700" height="350" alt="" /></p>
+<p>To select a set of solutions and delete the others:</p>
+<p>-First select the wanted set of solutions using "F04 Brushing" in one or more axes</p>
+<p>-Then click the button "Keep"</p>
+<p>-Finally remove brush by tapping in the axis/axes background</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f06>F05	Exclude</a></h3><br>
+<p><img src="images/06exclude.png" width="700" height="350" alt="" /></p>
+<p>To delete a selected set of solutions:</p>
+<p>-First select the NON wanted set of solutions using "F04 Brushing" in ONE axis</p>
+<p>-Then click the button "Exclude"</p>
+<p>-Finally remove brush by tapping in the axis background</p>
+<p>Note: To remove sets of solutions according more than one axis, it is necessary to do this process one axis at a time</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f07>F06	Show / Hide selected items</a></h3><br>
+<p><img src="images/07hideShow.png" width="700" height="350" alt="" /></p>
+<p>-To show(underline) the set of selected/reference solutions, click on "Show selected".</p>
+<p>-To hide(show all the solutions at the same level) the set of selected/reference solutions, click on "Hide selected".</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f08>F07	Selection from data grid</a></h3><br>
+<p><img src="images/08selection.png" width="700" height="350" alt="" /></p>
+<p>To select a specific solution.</p>
+<p>-Click on the specific solution on the data grid located at the "Sample List" section.</p>
+<p>-This solution will be added to the list of selected solutions located at the "Selected Samples" section.</p>
+<p>To delete one of the selected solutions from the "Selected Samples" list</p>
+<p>-Double click on the solution listed at "Selected Samples".</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f09>F08	Print Screenshot</a></h3><br>
+<p><img src="images/09screeen.png" width="700" height="350" alt="" /></p>
+<p>To download an image of the whole displayed screen:</p>
+<p>-Click on the button "Download Screenshot"</p>
+<p>-Select to save as a "PDF" file or print</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f10>F09	Export active data</a></h3><br>
+<p><img src="images/10export.png" width="700" height="350" alt="" /></p>
+<p>To download the active data (as a .csv file) that is still shown in the parallel coordinates plot:</p>
+<p>-Click on the button "Export Active Data"</p>
+<p>The .csv file will be automatically saved as "Active_data.csv" in the "Download" folder of your computed</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f11>F10	Export selected items</a></h3><br>
+<p><img src="images/11exportSelected.png" width="700" height="350" alt="" /></p>
+<p>To download the selected data (as a .csv file) shown in the "Selected samples" list:</p>
+<p>-Click on the button "Export Selected Items"</p>
+<p>The .csv file will be automatically saved as "selected_data.csv" in the "Download" folder of your computed</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+<h3> <a name=f13>F11	Data grid explorer</a></h3><br>
+<p><img src="images/13gridExplorer.png" width="700" height="350" alt="" /></p>
+<p>The grid located at "Sample list" has different functionalities:</p>
+<p>-It is possible to scroll up and down to navigate around all the solutions. And right and left to see all the information related to the solutions</p>
+<p>-By clicking the label at the top the list is sorted in alphabetic order.</p>
+<p>It also has the possibility of sorting and navigate the grid in different ways:</p>
+<p>-Click on the bulb icon located in the top right corner of the grid. </p>
+<p>-Select the number of samples to locate per page (25, 50, 100).</p> 
+<p>-Navigate between pages using the arrows located at the top left corner of the grid.</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f14>F12	Remark alternative</a></h3><br>
+<p><img src="images/14Remark.png" width="700" height="350" alt="" /></p>
+<p>To underline a specific solution in the parallel coordinates plot, it can be place the mouse over the solution listed in both grids, the one located at "Sample list" and "Selected items" </p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f15>F13	Search by name</a></h3><br>
+<p><img src="images/15search.png" width="700" height="350" alt="" /></p>
+<p>To search a specific solution or group of solutions by name:</p>
+<p>-Write the name in the text box located at "Sample list" section. The solutions that match with the written name show up in the grid.</p>
+<p>-Click on any of the axis of the parallel coordinates plot to update it with the matching solutions.</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f16>F14	Drop-down menu Kendall tau (slider)</a></h3><br>
+<p><img src="images/16dropDownKenallTau.png" width="700" height="350" alt="" /></p>
+<p>From the Kendall Matrix, ParPlot assigns a mean value to each one of the solutions.</p>
+<p>To do a graphical concordance analysis:</p>
+<p>-Select "Kendall" on the drop-down menu located in the "Classes" section.</p>
+<p>-Update "Max" (Maximum limit value) and "Min" (Minimum limit value) sliders located in the same section by setting them in a new position.</p>
+<p>The solutions are set with a corresponding color defined by the Kendall mean value assign, in a range of colors from green(corresponding to the Minimum limit value) to blue(corresponding to the Maximum limit value).</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f17>F15	Drop-down menu dimensions (axis, slider)</a></h3><br>
+<p><img src="images/17dropDownMenu.png" width="700" height="350" alt="" /></p>
+<p>To track the behaviour of the solutions along the axes in reference to a selected axis:</p>
+<p>-Select the index (axis) of interest on the drop-down manu located in the "Classes" section.</p>
+<p>-Update "Max" (Maximum limit value) and "Min" (Minimum limit value) sliders located in the same section by setting them in a new position.</p>
+<p>The solutions are set with a corresponding color, in a range of colors from green(corresponding to the Minimum limit value) to blue(corresponding to the Maximum limit value).</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f18>F16	Clear search</a></h3><br>
+<p><img src="images/18clear.png" width="700" height="350" alt="" /></p>
+<p>To go back to the initial uploaded data and start the analysis process from the beggining:</p>
+<p>-Click on the button "Clear Search"</p>
+<p>Note: This function also deletes the list of selected solutions.</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f19>F17	New Project</a></h3><br>
+<p><img src="images/19newProject.png" width="700" height="350" alt="" /></p>
+<p>To upload a different file and start the analysis process from the beginning:</p>
+<p>-Click on the button "New Project".</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f20>F18	Hide Ticks / Show ticks</a></h3><br>
+<p><img src="images/20hideShowTicks.png" width="700" height="350" alt="" /></p>
+<p>-Click on the button "Hide Ticks" to hide the axes values on the parallel coordinates plot</p>
+<p>-Click on the button "Show Ticks" to show the axes values on the parallel coordinates plot</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+
+<h3> <a name=f21>F19	Dark / Light</a></h3> 
+<p><img src="images/21darkLight.png" width="700" height="350" alt="" /></p>
+<p>-Click the button "Dark" to change the background to black color</p>
+<p>-Click the button "Light" to change the background to white color</p>
+<a href=#initial>Back to list of functions</a><br><br>
+
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Video tutorial by Situations</h2>
+					<ul>
+						<li><a href="videos/case01.mp4" onClick="MyWindow=window.open('videos/case01.mp4','MyWin??dow','width=800,height=500'); return false;">Stakeholders need to work alone and asynchronous in an efficient way</a></li>
+						<li><a href="videos/case02.mp4" onClick="MyWindow=window.open('videos/case02.mp4','MyWin??dow','width=800,height=500'); return false;">Selection of solutions remarking reference ones</a></li>
+						<li><a href="videos/case03.mp4" onClick="MyWindow=window.open('videos/case03.mp4','MyWin??dow','width=800,height=500'); return false;">Clear communication of results and actual state</a></li>
+						<li><a href="videos/case04.mp4" onClick="MyWindow=window.open('videos/case04.mp4','MyWin??dow','width=800,height=500'); return false;">Grouping and sort of information using differential characteristics of the projections</a></li>
+						<li><a href="videos/case05.mp4" onClick="MyWindow=window.open('videos/case05.mp4','MyWin??dow','width=800,height=500'); return false;">Capability of starting many times</a></li>
+						<li><a href="videos/case06.mp4" onClick="MyWindow=window.open('videos/case06.mp4','MyWin??dow','width=800,height=500'); return false;">Visual alternatives to improve the analysis</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page --> 
+	
+<div id="footer">
+	<p>creative commons. Images and design by Mario Giraldo and Fabian Parra</p>
+<p><img src="images/polimi.png" width="100" height="100" alt="" /></p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
