@@ -1,0 +1,428 @@
+body {
+  font-family: Ubuntu, Tahoma, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.4em;
+  background: #f7f7f7;
+  color: #404040;
+}
+
+a {
+  color: #555;
+}
+
+a:hover {
+  color: #000;
+}
+ul {
+  margin: 0 20px;
+  padding: 0;
+}
+.dark {
+  background: #222;
+}
+p {
+  width: 560px;
+}
+pre {
+  color: #444;
+  font-family: Ubuntu Mono, Monaco, monospace;
+  padding: 4px 8px;
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+}
+h1 small {
+  font-weight: normal;
+  font-size: 0.5em;
+}
+h3 {
+  margin: 12px 0 9px;
+}
+.float {
+  float: left;
+}
+.centered {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+
+
+body.dark {
+  background: #131313;
+  color: #e3e3e3;
+}
+.dark a {
+  color: #5ae;
+}
+#wrap {
+  padding: 0 3.5%;
+}
+svg {
+  font-family: Ubuntu, Tahoma, Helvetica, sans-serif;
+}
+#chart {
+  position: relative;
+}
+.brush rect.extent {
+  fill: rgba(100,100,100,0.15);
+  stroke: #fff;
+}
+.dark .brush rect.extent {
+  fill: rgba(100,100,100,0.15);
+  stroke: #ddd;
+}
+.brush:hover rect.extent {
+  stroke: #222;
+  stroke-dasharray: 5,5;
+}
+.brush rect.extent:hover {
+  stroke-dasharray: none;
+}
+.resize rect {
+  fill: none;
+}
+.background {
+  fill: none;
+}
+.dark .background {
+  fill: none;
+}
+.axis line, .axis path {
+  fill: none;
+  stroke: #777;
+  stroke-width: 1;
+}
+.dark .axis line, .dark .axis path {
+  stroke: #777;
+}
+.axis .tick {
+  width: 200px;
+}
+.axis text {
+  fill: #111;
+  text-anchor: right;
+  font-size: 11px;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+.axis text.label {
+  font-size: 12px;
+  cursor: move;
+  padding-bottom: 24px;
+}
+.dark .axis text {
+  fill: #f2f2f2;
+  text-shadow: 0 1px 0 #000, 1px 0 0 #000, 0 -1px 0 #000, -1px 0 0 #000;
+}
+.dark .axis text.label {
+  fill: #ddd;
+}
+.quarter, .third, .half {
+  float: left;
+}
+.quarter {
+  width: 23%;
+  margin: 0 1%;
+}
+.third {
+  width: 31.3%;
+  margin: 0 1%;
+}
+.half {
+  width: 48%;
+  margin: 0 1%;
+}
+h3 small {
+  color: #888;
+  font-weight: normal;
+}
+p {
+  margin: 0.6em 0;
+}
+small {
+  line-height: 1.2em;
+}
+
+button[disabled=disabled] {
+  color: #555 !important;
+  opacity: 0.4;
+}
+.settings button[disabled=disabled] {
+  display: none;
+}
+.dark button[disabled=disabled] {
+  opacity: 0.2;
+}
+
+input[type=button] {
+    background: #c2791f;
+  background-image: -webkit-linear-gradient(top, #c2791f, #a36f1a);
+  background-image: -moz-linear-gradient(top, #c2791f, #a36f1a);
+  background-image: -ms-linear-gradient(top, #c2791f, #a36f1a);
+  background-image: -o-linear-gradient(top, #c2791f, #a36f1a);
+  background-image: linear-gradient(to bottom, #c2791f, #a36f1a);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px;
+  text-decoration: none;  
+    border: 0px;
+}
+
+button#keep-data,
+button#exclude-data,
+button#on-selected,
+button#off-selected{
+    background: #348cd9;
+  background-image: -webkit-linear-gradient(top, #348cd9, #5267ba);
+  background-image: -moz-linear-gradient(top, #348cd9, #5267ba);
+  background-image: -ms-linear-gradient(top, #348cd9, #5267ba);
+  background-image: -o-linear-gradient(top, #348cd9, #5267ba);
+  background-image: linear-gradient(to bottom, #348cd9, #5267ba);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px;
+  text-decoration: none;  
+    border: 0px;
+}
+
+input[type=button]:hover,
+button#downloadScreenshot:hover,
+button#printKendall:hover,
+button#on-selected:hover,
+button#show-ticks:hover,
+button#light-theme:hover,
+button#off-selected:hover,
+button#hide-ticks:hover,
+button#dark-theme:hover,
+button#refresh:hover,
+button#clear-search:hover,
+button#exclude-data:hover,
+button#keep-data:hover {
+    background: #ffffff;
+  text-decoration: none;
+font-weight: bold;
+    color: #000000;
+}
+
+
+button#clear-search,
+button#refresh{
+   background: #702e70;
+  background-image: -webkit-linear-gradient(top, #702e70, #57356e);
+  background-image: -moz-linear-gradient(top, #702e70, #57356e);
+  background-image: -ms-linear-gradient(top, #702e70, #57356e);
+  background-image: -o-linear-gradient(top, #702e70, #57356e);
+  background-image: linear-gradient(to bottom, #702e70, #57356e);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 4px;
+  text-decoration: none; 
+    border: 0px;
+}
+
+button#hide-ticks,
+button#show-ticks,
+button#dark-theme,
+button#light-theme{
+        background: #942626;
+  background-image: -webkit-linear-gradient(top, #942626, #612a3e);
+  background-image: -moz-linear-gradient(top, #942626, #612a3e);
+  background-image: -ms-linear-gradient(top, #942626, #612a3e);
+  background-image: -o-linear-gradient(top, #942626, #612a3e);
+  background-image: linear-gradient(to bottom, #942626, #612a3e);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 4px;
+  text-decoration: none;
+    border: 0px;
+}
+
+button#helpButton{
+        background: #ababab;
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  text-shadow: 5px 4px 3px #666666;
+  font-family: Arial;
+  color: #000000;
+  font-size: 17px;
+  padding: 6px;
+  text-decoration: none;
+    font-weight: 900;
+    border: 0px;
+}
+
+button#helpButton:hover{
+background: #000000;
+  text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+button#downloadScreenshot,
+button#printKendall{
+    background: #899994;
+  background-image: -webkit-linear-gradient(top, #899994, #666666);
+  background-image: -moz-linear-gradient(top, #899994, #666666);
+  background-image: -ms-linear-gradient(top, #899994, #666666);
+  background-image: -o-linear-gradient(top, #899994, #666666);
+  background-image: linear-gradient(to bottom, #899994, #666666);
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px;
+  text-decoration: none; 
+    border: 0px;
+}
+
+
+#food-list {
+  width: 100%;
+  height: 460px;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+#legend {
+  text-align: left;
+  overflow-y: auto;
+  border-left: 1px solid rgba(140,140,140,0.5);
+}
+row {
+  cursor: pointer;
+}
+.row:hover {
+  font-size: 16px;
+  line-height: 1.3em;
+}
+.off {
+  color: #999;
+}
+.dark .off {
+  color: #555;
+}
+.dark #legend {
+  border-left: 1px solid #777;
+}
+.color-block, .color-bar {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  margin: 1px 4px 1px 0px;
+}
+#rendered-bar,
+#selected-bar {
+  width:0%;
+  font-weight: bold;
+}
+#rendered-bar {
+  background: #888;
+  border-right: 1px solid #666;
+}
+#selected-bar {
+  background: rgba(160,160,160,0.5);
+  border-right: 1px solid #999;
+}
+.fillbar {
+  height: 12px;
+  line-height: 12px;
+  border:1px solid rgba(120,120,120,0.5);
+  width: 120px;
+  display: inline-block;
+}
+.little-box {
+  width: 268px;
+  float: left;
+}
+#header {
+  border-bottom: 1px solid rgba(100,100,100,0.35);
+  background: #1f356e;
+  padding: 6px 24px 4px;
+  line-height: 24px;
+}
+
+.dark #header {
+  background: #040404;
+  color: #f3f3f3;
+}
+.dark #example {
+  background: #040404;
+}
+
+#header h1 {
+    color:azure;
+    font-family: Impact, Charcoal;
+  text-align: center;
+    vertical-align: top;
+    height: 10px;
+    font-size: 30px;
+}
+#ToolName {height: 70px;}
+#descriptDiv {
+   width: 50%;
+  margin: 0 auto;
+    text-align: center;
+    text-align: top;
+}
+#header p1 {
+    color:azure;
+}
+
+
+.help {
+    vertical-align: top;
+    float:right;
+}
+
+.controls {
+  float: right;
+  height: 24px;
+  line-height: 24px;
+}
+/* Scrollbars */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 12px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #b5b5b5;
+  border-radius: 12px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #222;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+.row, .header { clear: left; font-size: 12px; line-height: 18px; height: 18px; }
+.row:nth-child(odd) { background: rgba(0,0,0,0.05); }
+.header { font-weight: bold; }
+.cell { float: left; overflow: hidden; white-space: nowrap; width: 100px; height: 18px; }
+.col-0 { width: 180px; }

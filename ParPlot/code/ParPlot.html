@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+    <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+</head>
+<link rel="shortcut icon" type="image/png" href="logo.png">
+<title>ParPlot</title>
+
+<!-- SlickGrid -->
+<link rel="stylesheet" href="lib/slickgrid/slick.grid.css" type="text/css"/>
+<link rel="stylesheet" href="lib/slickgrid/jquery-ui-1.8.16.custom.css" type="text/css"/>
+<link rel="stylesheet" href="lib/slickgrid/examples.css" type="text/css"/>
+<link rel="stylesheet" href="lib/slickgrid/slick.pager.css" type="text/css"/>
+    
+
+<script src="lib/slickgrid/jquery-1.7.min.js"></script>
+<script src="lib/slickgrid/jquery.event.drag-2.0.min.js"></script>
+<script src="lib/slickgrid/slick.core.js"></script>
+<script src="lib/slickgrid/slick.grid.js"></script>
+<script src="lib/slickgrid/slick.pager.js"></script>
+<script src="lib/slickgrid/slick.dataview.js"></script>
+
+<!-- End SlickGrid -->
+
+<link rel="stylesheet" type="text/css" href="../d3.parcoords.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+#grid, #pager {
+    
+  width: 90%;
+}
+#grid {
+  bottom: 0;
+  height: 300px;
+}
+#pager {
+  bottom: 306px;
+  height: 20px;
+}
+.slick-row:hover {
+  font-weight: bold;
+  color: #069;
+}
+</style>
+<script src="lib/d3.min.js"></script>
+<script src="../d3.parcoords.js"></script>
+<script src="lib/divgrid.js"></script>
+
+
+<body>
+      <div id="header">
+            <div class="help">
+<!--BUTTON-"Hide-ticks": Hide the numbers of the axis-->
+        <button id="helpButton" title="Help" onclick="window.open('tutorial/tutorial.html')">?</button>
+    </div>
+          <div id="ToolName">
+    <h1>Environmental ParPlot</h1>
+          <div id="descriptDiv">
+        <p1 id="description">
+          Advanced Visual Analytics - Parallel Coordinates
+        </p1>
+          </div>
+              </div>
+          
+    <!--STATISTICS--> 
+  
+ 
+<!--THE BASICS-->   
+<!-- BUTTON-"Keep": after a selection, it forgets all the others simulations and rescale with that data selection.-->
+    <button title="Remove non selected data" id="keep-data" >Keep</button>
+<!-- BUTTON-"Exclude": after a selection, it forgets the selection to remain all the others simulations and rescale with that data selection.-->
+    <button title="Remove selected data" id="exclude-data" >Exclude</button>
+<!--BUTTON-"Clear-Search": It Refreshes the page.-->
+    <button title="Back to complete data" id="clear-search">Clear Search</button>
+<!--BUTTON-"Clear-Search": It Refreshes the page.-->
+    <button title="Open new file" id="refresh">New Project</button>
+    <button title="Print screen of the actual state" id="downloadScreenshot" onclick="downloadScreenshot()">Print Screenshot</button>
+<!--BUTTON-"Export": It exports all information from the active data, the function is renamed as export_cvs.-->
+<input title="Export CSV file of active data" type="button" value="Export Active Data" onclick='downloadCSV1({ filename: "Active_data.csv" });'/>
+
+    
+      
+  
+<!--STATISTICS--> 
+    <div class="controls">
+<!--Count: Number of selected soludtions "/" total of possible solutions-->
+     <p1> Selected lines:<strong id="rendered-count"></strong>&nbsp;Total lines:<strong id="data-count"></strong></p1>
+          
+<!--APPEARANCE BUTTONS--> 
+<!--BUTTON-"Hide-ticks": Hide the numbers of the axis--> 
+        <button title="Hide numbers of axes" id="hide-ticks">Hide Ticks</button>
+<!--BUTTON-"Show-ticks": Show the numbers of the axis-->
+        <button title="Show numbers of axes" id="show-ticks" disabled="disabled">Show Ticks</button>
+<!--BUTTON-"dark-theme": Background turns black-->
+        <button title="Set black background" id="dark-theme">Dark</button>
+<!--BUTTON-"light-theme": Background turns white-->
+        <button title="Set white background" id="light-theme" disabled="disabled">Light</button>
+      </span>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+  
+    
+ <div id="main"> 
+<!--BUTTON-"Open File": Open a CSV file to replace the existing one.-->
+<p id="valueLabel">Select Solutions file</p>
+<input type="file" value="Open File" id="uploader" >
+
+     
+<div id="example" class="parcoords" style="height:300px;"></div>
+  
+
+<!--Half 1:  shows the information about the render lines and the classes which is divided the information. The classes have the option of disappear from the parallel plots in this part in order to work with specific classes-->      
+  <div id="wrap">
+    <div id="grid1"  class="third">
+          
+      <h3>Classes</h3>
+        
+      <p id="legend">
+          <select class="btn dropdown-toggle" ONCHANGE="dropDownMenu(this)" id="drop-down">
+    <option value='Group'>Group</option>
+          </select>
+      </p>
+        
+        <div id="dropAppearance">
+        <p>Max <strong id="strength1">0.5</strong><br>
+    <input type="range" step="0.005" id="bundling1"></p>
+        <p>Min <strong id="strength2">0.5</strong><br>
+    <input type="range" step="0.005"  id="bundling2">
+        </p>
+        </div>
+        
+    </div>
+      
+<!--Half 2:  It shows all the simulations (entries) and give the option to search for one in order to be selected. Using the other simulations will disappear. It gives the possibility to select simulations that has a especial thing in the name too --> 
+    <div class="third">
+      <h3>Sample list </h3><input type="text" id="search" placeholder="Search by Name..." ></input>
+      
+    <div id="pager"></div>
+    <div  id="grid"></div>
+    </div>
+
+<div class="third" >
+    
+    
+      <h3>Selected samples </h3> 
+    
+    <!--BUTTON-"ExportSelected": Downloads selected items in the list + max and min values-->
+<input title="Export CSV file of selected data" type="button" value="Export Selected Items" onclick='downloadCSV({ filename: "selected-data.csv" });'/>
+  <button title="Show selected data" id="on-selected">Show Selected</button>
+    <button title="Hide selected data" id="off-selected">Hide Selected</button>
+  
+    
+    <div  id="extra-info">
+      <p id="paragraphInfo">
+      </p>
+    </div>
+</div>
+      
+      
+  </div>
+  
+<!--LLITTLE BOX 1: References (text, http links)-->
+      <div class="little-box" id="lastBox" >
+        <h3>Credits &amp; License</h3>
+          <p>
+          Adapted from examples by<br/>
+          <a href="http://bl.ocks.org/syntagmatic/raw/3150059/">Kai Chang</a> 
+          </p>
+          <p>Copyright © 2017, Fabian Parra and Mario Giraldo</p>
+          <img src="LogoPolimi.png" width="200" height="60" alt="" /> 
+          <img src="DAFNE_logo_LARGE.png" width="140" height="60" alt="" />
+          <p>
+            Released under the <a href="http://opensource.org/licenses/bsd-3-clause">BSD License</a>.
+          </p>
+        
+    </div>    
+    
+    
+
+
+</body>
+
+<script src="main.js"></script>
+<script src="lib/d3.js"></script>
+<script src="lib/divgrid.js"></script>
+<script src="js/underscore.js"></script>
+
+</html>
